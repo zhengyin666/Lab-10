@@ -14,6 +14,12 @@
   <!-- Main Stylesheet & Scripts -->
   <link rel="stylesheet" href="assets/styles/global.css" />
   <script src="assets/scripts/partyHorn.js" type="module"></script>
+
+  <style>
+    body.blue {
+      background-color: lightblue;
+    }
+  </style>
 </head>
 
 <body>
@@ -22,26 +28,41 @@
       <a href="speechSynth.html" title="Go to speech synthesizer">Speech Synthesizer</a>
     </nav>
   </header>
+
   <main>
     <section id="expose">
       <header>
         <h2>Return of the Party Horn</h2>
       </header>
+
       <img src="assets/images/no-image.png" alt="No image selected" />
+
       <select name="horn" id="horn-select">
         <option value="select" disabled selected>Select Horn:</option>
         <option value="air-horn">Air Horn</option>
         <option value="car-horn">Car Horn</option>
         <option value="party-horn">Party Horn</option>
       </select>
+
       <div id="volume-controls">
         <input type="range" name="volume" id="volume" value="50" min="0" max="100" step="1" />
         <img src="assets/icons/volume-level-2.svg" alt="Volume level 2" />
       </div>
+
       <button>Play Sound</button>
       <audio class="hidden" src=""></audio>
     </section>
   </main>
+
+  <script>
+    const randomNumber = Math.random();
+    const shouldApplyClass = randomNumber < 0.5;
+    let body = document.querySelector('body');
+
+    if (shouldApplyClass) {
+      body.classList.add('blue');
+    }
+  </script>
 </body>
 
 </html>
